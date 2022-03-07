@@ -14,6 +14,10 @@ public class RubyController : MonoBehaviour
     }
     private int currentHealth;
 
+    public float timeInvincible = 2.0f;
+    private bool isInvincible;
+    private float invincibleTimer;
+
     [SerializeField] private float speed = 3.0f;
     // Start is called before the first frame update
     void Start()
@@ -33,10 +37,27 @@ public class RubyController : MonoBehaviour
         position.x = position.x + speed * horizontal * Time.deltaTime;
         position.y = position.y + speed * vertical * Time.deltaTime;
         _rigidbody2D.MovePosition(position);
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+                Debug.Log(invincibleTimer);
+            }
+        }
     }
 
     public void ChangeHealth(int amount)
     {
+        if (amount < 0)
+        {
+            if (isInvincible) return;
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+
+        }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }

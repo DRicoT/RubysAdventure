@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1221330134072595506}
   - component: {fileID: 1288106914818850089}
+  - component: {fileID: 6137551475205093098}
+  - component: {fileID: 7000771389543362302}
   m_Layer: 0
   m_Name: Damageable
   m_TagString: Untagged
@@ -82,3 +84,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6137551475205093098
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358209310372557349}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0065073967, y: 1.293015}
+  serializedVersion: 2
+  m_Radius: 1.3646488
+--- !u!114 &7000771389543362302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358209310372557349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a342af2ec11d14aa6c206b2aadbb3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
