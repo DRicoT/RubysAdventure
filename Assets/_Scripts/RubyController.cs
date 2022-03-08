@@ -51,8 +51,6 @@ public class RubyController : MonoBehaviour
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", lookDirection.magnitude);
         
-        
-
         if (isInvincible)
         {
             invincibleTimer -= Time.deltaTime;
@@ -92,7 +90,7 @@ public class RubyController : MonoBehaviour
     {
         GameObject projectileObject = Instantiate(projectilePrefab, _rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
         Projectile projectile = projectileObject.GetComponent<Projectile>();
-        projectile.Launch(lookDirection, 300f);
+        projectile.Launch(lookDirection, 100f);
         
         animator.SetTrigger("Launch");
     }
