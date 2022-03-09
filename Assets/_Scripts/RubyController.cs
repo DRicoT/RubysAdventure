@@ -17,7 +17,10 @@ public class RubyController : MonoBehaviour
         get { return currentHealth; }
     }
     private int currentHealth;
+
+    public AudioClip ProjectileAudioClip;
     
+    private AudioSource _audioSource;
 
     public float timeInvincible = 2.0f;
     private bool isInvincible;
@@ -31,6 +34,7 @@ public class RubyController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
         //QualitySettings.vSyncCount = 0;
         //Application.targetFrameRate = 10;
@@ -64,6 +68,7 @@ public class RubyController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Launch();
+            _audioSource.PlayOneShot(ProjectileAudioClip);
         }
     }
 
@@ -94,5 +99,10 @@ public class RubyController : MonoBehaviour
         projectile.Launch(lookDirection, 100f);
         
         animator.SetTrigger("Launch");
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        _audioSource.PlayOneShot(clip);
     }
 }

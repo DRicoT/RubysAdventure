@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     private float timer;
     private int direction = 1;
 
+    public AudioClip damageAudioClip;
+    
     private bool broken = true;
     [SerializeField] private ParticleSystem smokeEffect;
     
@@ -64,6 +66,7 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             player.ChangeHealth(-1);
+            player.PlaySound(damageAudioClip);
         }
     }
 
